@@ -5,8 +5,9 @@ const router = express.Router();
 
 let controller = new tarefaController();
 router.get("/", controller.listar);
+router.get("/:id", controller.obterPorId);
 router.post("/", controller.cadastrar);
 router.put("/", controller.alterar);
-router.delete("/", controller.deletar);
+router.delete("/:id", controller.deletar);
 
 export default router;
