@@ -3,9 +3,9 @@
 o nome do arquivo por completo diferente do q é no PFS1
     
 # completo
-//let nome = req.body.nome;
-//let descricao = req.body.descricao;
-//let data = req.body.data;
+let nome = req.body.nome;
+let descricao = req.body.descricao;
+let data = req.body.data;
 # mesma coisa mas resumido
 let{nome, descricao, data} = req.body;
 
