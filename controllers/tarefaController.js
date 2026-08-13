@@ -12,7 +12,7 @@ let tarefas = [
 
 export default class tarefaController{
 
-    obterPorId(){
+    obterPorId(req, res){
         let {id} = req.params;
 
         let tarefaEncontrada = tarefas.filter(x => x.id == id);
