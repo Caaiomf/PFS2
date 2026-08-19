@@ -15,3 +15,15 @@ usa o tempo de hoje para criar o id, date.now cria um numero aleatorio apartir d
 ## para testar o metodo post é possivel usando um app "postman"
 
 ## necessario na pasta server.js "server.use(express.json());" para descerealizar o json q vem de fora para poder tratar dentro dos arquivos
+  
+uma boa pratica de desenvolvimento para verificar um erro é usar o:  
+Try{  
+}catch(error){  
+    console.log(erro);  
+return res.status(400).json({msg: "Erro interno no servidor"})    
+}  
+vai definir q o codigo 400 é um erro e só mostra para o cliente uma mensagem de erro no servidor e nos podemos ter acesso pelo terminal   
+  
+## swagger é uma ferramenta de documentação de endpoints
+ele mostra tudo o que é necessario no corpo, e tambem é possivel testar os endpoints e mostra tambem os possiveis codigo de retorno e o que ele faz  
+existem alguns detalhes que não são automatico, como a descrição do endpoint sera necessario alguns marcadores para dizer qual a descrição dele  
