@@ -4,7 +4,7 @@ const server = express();
 
 server.use(express.json());
 
-server.use ("/tarefa", tarefaRouter);
+server.use("/tarefa", tarefaRouter);
 
 server.listen(5000, function(){
     console.log("servidor web funcionando!");

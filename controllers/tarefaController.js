@@ -27,40 +27,38 @@ export default class tarefaController{
     }
 
     cadastrar(req, res){
-        //let nome = req.body.nome;
-        //let descricao = req.body.descricao;
-        //let data = req.body.data;
         let{nome} = req.body;
         
         if(nome){
             //grava no array o novo objeto
             let novaTarefa = {id: Date.now(), nome: nome};
             tarefas.push(novaTarefa);
-            res.status(201).json(novaTarefa);
+            return res.status(201).json(novaTarefa);
         }   
         else{
-            res.status(400).json({msg: " o parametro nome não foi enviado na requisição"})
+            return res.status(400).json({msg: " o parametro nome não foi enviado na requisição"})
         }
     }
     
-    alterar(req, res){
-    let{id, nome} = req.body;
-    if(id && id > 0 && nome){
-        //validação da tarefa a ser alterada
-        // busca no array para achar a tarefa
-        let tarefaEncontrada = tarefa.filter(x => x.id == id);
-        if (tarefaEncontrada.length == 0){
-           return res.status(404).json({msg: "tarefa não encontrada para alteração!"});
+    alterar(req, res) {
+        let {id, nome} = req.body;
+        //validação do corpo
+        if(id >= 0 && nome) {
+            //validação da tarefa a ser alterada
+            //busca no array para achar a tarefa.
+            let tarefaEncontrada = tarefas.filter(x => x.id == id);
+            if(tarefaEncontrada.length == 0) {
+                return res.status(404).json({msg: "Tarefa não encontrada para alteração!"});
+            }
+            
             //substitui os atributos pelos que vieram no corpo
+            tarefaEncontrada[0].nome = nome;
+
+            return res.status(200).json({msg:  "Tarefa alterada!"});
         }
         else {
-            tarefaEncontrada[0].nome = nome;
-            return res.status(200).json({msg: "Tarefa alterada!"});
+            return res.status(400).json({msg: "Parâmetros incorretos! Verifique se o ID e nome foram enviados no corpo"})
         }
-    }else{
-        return res.status(400).json({msg: "Parametros Incorretos! Verifique se o ID e o nome foram enviados no corpo"})
-
-    }
     }
     
     deletar(req, res){
