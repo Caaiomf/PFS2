@@ -32,5 +32,33 @@ existem alguns detalhes que não são automatico, como a descrição do endpoint
 responsavel para ler todo o arquivo e cria um json
 ## Swagger UI Express (npm install swagger-ui-express)
 le o json e cria a interface  
+OBS: muitas bibliotecas ja vem com isso pronto, o express não é um deles então é necessario instalar  
+nesse caso é necessario criar um swagger.js com 
+import swaggerAutogen from "swagger-autogen";
+  
+const doc = {  
+    info: {  
+        title: "API para a disciplina de PFS2",  
+        description: "documentação do conjunto de endpoints criados durante a aula de programação fullstack 2"  
+    },  
+    host: "localhost:5000"  
+}  
+  
+const outputFile ="./swagger-output.json";  
+const routes = ["./server.js"];  
+swaggerAutogen()(outputFile,routes,doc);  
 
-OBS: muitas bibliotecas ja vem com isso pronto, o express não é um deles então é necessario instalar 
+e apos isso rodar o node swagger.js que vai criar o swagger-output.json que é o responsavel por criar a page  
+agora é configurar a swagger para ler esse json, é necessario por no server a bilbioteca
+para colocar tags e summary  
+router.get("/", (req,res) => {   
+    // #swagger.tags = ["Tarefa"]  
+    // #swagger.summary = "Lista todas as tarefas cadastradas"  
+    controller.listar(req,res);  
+});  
+  
+é necessario deixar o comentario no formato em que ele pede para poder colocar a tag e o summary  
+sempre é necessario rodar o "node swagger.js" assim que fizer alteração no tag ou summary  
+
+
+## Entities e repositories
