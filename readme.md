@@ -27,3 +27,10 @@ vai definir q o codigo 400 é um erro e só mostra para o cliente uma mensagem d
 ## swagger é uma ferramenta de documentação de endpoints
 ele mostra tudo o que é necessario no corpo, e tambem é possivel testar os endpoints e mostra tambem os possiveis codigo de retorno e o que ele faz  
 existem alguns detalhes que não são automatico, como a descrição do endpoint sera necessario alguns marcadores para dizer qual a descrição dele  
+  
+## Swagger Autogen (npm install swagger-autogen) 
+responsavel para ler todo o arquivo e cria um json
+## Swagger UI Express (npm install swagger-ui-express)
+le o json e cria a interface  
+
+OBS: muitas bibliotecas ja vem com isso pronto, o express não é um deles então é necessario instalar 
