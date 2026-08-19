@@ -1,5 +1,5 @@
-## metodo de importar o express e tambem exportar os arquivos são diferentes do q o PFS1 ter atenção!
-## vale resaltar: import tarefaController from "../controllers/tarefaController.js"; precisa colocar o .js no final, precisa chamar
+### metodo de importar o express e tambem exportar os arquivos são diferentes do q o PFS1 ter atenção!
+### vale resaltar: import tarefaController from "../controllers/tarefaController.js"; precisa colocar o .js no final, precisa chamar
 o nome do arquivo por completo diferente do q é no PFS1
     
 ### completo
